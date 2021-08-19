@@ -63,7 +63,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if($data['email'] != "admin@mail.test") 
+        if($data['email'] != "admin@flytradedev.com") 
             return false;
             
         return User::create([

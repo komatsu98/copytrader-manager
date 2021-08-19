@@ -45,6 +45,37 @@ class AdminController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateFUser(Request $request, $id)
+    {
+        // $userId = Auth::user()->id;
+        $request->validate([
+            'type' => 'required',
+        ]);
+        $user = FUser::find($id);
+        if (!$user) {
+            return redirect('admin/users')->with('error', 'User not found.');
+        }
+        // echo "<pre>";
+        $input = $request->input();
+        $input['status'] = $request->has('status');
+        // $input['user_id'] = $userId;
+        if($input['type'] == "active") {
+            $userStatus = $user->update(['status' => $input['status']]);
+        }
+        if ($userStatus) {
+            return back()->with('success', 'User successfully updated.');
+        } else {
+            return back()->with('error', 'Oops something went wrong. User not updated');
+        }
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

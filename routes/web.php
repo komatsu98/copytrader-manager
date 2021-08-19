@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/admin/user/{user}/group/{group}', 'AdminController@destroyUserGroup')->name('admin.user.group.destroy');
 
     Route::get('/admin/user/{user}/history', 'AdminController@listUserHistories')->name('admin.user.histories');
+    Route::put('/admin/user/{user}', 'AdminController@updateFUser')->name('admin.user.update');
 
     Route::get('/admin/groups', 'AdminController@listFGroups')->name('admin.groups');
     Route::get('/admin/group/{group}/user', 'AdminController@listGroupUsers')->name('admin.group.user.list');

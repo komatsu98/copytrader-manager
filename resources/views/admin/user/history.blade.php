@@ -62,8 +62,3 @@
 </div>
 
 @endsection
-@push('scripts')
-<script>
-    console.log("s");
-</script>
-@endpush

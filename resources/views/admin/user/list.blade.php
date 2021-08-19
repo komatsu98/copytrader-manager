@@ -55,11 +55,17 @@
 						<td>{{ $user->created_at }}</td>
 						<td>
 							<center>
-								@if ($user->status == 1)
-								<input type="checkbox" checked class="change_status">
-								@else
-								<input type="checkbox" class="change_status">
-								@endif
+								<form action="{{ route('admin.user.update', $user->id) }}" method="post" id="update_status">
+									@csrf
+									@method('PUT')
+									@if ($user->status == 1)
+									<input type="checkbox" checked class="change_status" name="status">
+									@else
+									<input type="checkbox" class="change_status" name="status">
+									@endif
+									<input type="hidden" name="type" value="active">
+								</form>
+
 							</center>
 
 						</td>
@@ -88,6 +94,9 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		$('input.change_status').click(function() {
+			$(this).parent('form').submit();
+		})
 		$('#search_icon').click(function() {
 			$('form#search').submit();
 		})
