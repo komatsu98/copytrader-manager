@@ -5,11 +5,11 @@
 	<br>
     <div class="row justify-content-center">
     	<div class="col-md-6">
-    		<h2>Add Todo</h2>
+    		<h2>Add Group</h2>
     	</div>
     	<div class="col-md-6">
     		<div class="float-right">
-    			<a href="{{ route('todo.index') }}" class="btn btn-primary">Back</a>
+    			<a href="{{ route('admin.groups') }}" class="btn btn-primary">Back</a>
     		</div>
     	</div>
     	<br>
@@ -24,13 +24,13 @@
                     {{ session('error') }}
                 </div>
             @endif
-			<form action="{{ route('todo.store') }}" method="POST">
+			<form action="{{ route('admin.group.store') }}" method="POST">
 				@csrf
 				<div class="form-group">
-					<label for="title">Title:</label>
-					<input type="text" class="form-control" id="title" name="title">
+					<label for="name">Name</label>
+					<input type="text" class="form-control" id="name" name="name">
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label for="description">Description:</label>
 					<textarea name="description" class="form-control" id="description" rows="5"></textarea>
 				</div>
@@ -40,7 +40,7 @@
 					<option value="pending">Pending</option>
 					<option value="completed">Completed</option>
 				</select>
-				</div>
+				</div> -->
 				<button type="submit" class="btn btn-default">Submit</button>
 			</form>
         </div>

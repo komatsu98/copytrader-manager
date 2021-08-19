@@ -5,3 +5,13 @@
 .margin-left-10 {
 	margin-left: 10px;
 }
+
+span.active {
+	font-weight: 600;
+	color: green;
+}
+
+span.inactive {
+	font-weight: 600;
+	color: grey;
+}

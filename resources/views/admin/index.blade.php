@@ -69,24 +69,9 @@
 <body>
     <div class="flex-center position-ref full-height">
         <div class="content">
-            <div class="title m-b-md">
-                Copy Trader Manager
-            </div>
-
             <div class="links">
-                @if (Route::has('login'))
-                @auth
-                <!-- <a href="{{ url('/todo') }}">Home</a> -->
-                <a href="{{ url('/admin/users') }}">Quản lý thành viên</a>
-                <a href="{{ url('/admin/groups') }}">Quản lý nhóm</a>
-                @else
-                <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}">Register</a>
-                @endif
-                @endauth
-                @endif
+                <a href="{{ route('admin.users') }}">Quản lý thành viên</a>
+                <a href="{{ route('admin.groups') }}">Quản lý nhóm</a>
             </div>
         </div>
     </div>

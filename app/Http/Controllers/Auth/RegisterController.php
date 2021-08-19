@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/todo';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -63,6 +63,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if($data['email'] != "admin@mail.test") 
+            return false;
+            
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
